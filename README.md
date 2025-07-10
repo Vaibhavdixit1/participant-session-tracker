@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Session Timeline UI for Video and Audio Calls
 
-## Getting Started
+This timeline displays each participant’s:
 
-First, run the development server:
+- Video and audio events (turning camera or microphone on/off with clear icons)
+- Error events such as connection or media errors
+- Join and leave times to show when participants entered and exited the session
+- Drop-off or disconnection events to differentiate unexpected disconnections from voluntary leaves
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+These features provide a detailed and intuitive view of participant activity throughout the meeting.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🛠️ Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js**
+- **Tailwind CSS**
+- **GitHub Icons** 
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `page.js` imports and renders the `Timeline` component.
+- `Timeline.js` internally uses:
+  - `TimeAxis.js` to display the timeline axis.
+  - `ParticipantRow.js` to render each participant’s event sequence.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## 📝 Approach Used to Create the Timeline
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Understanding Requirements**
+   - Analyzed the provided **JSON data structure** to understand participant events, timestamps, and event types (join, leave, mute, unmute, errors, disconnects).
+   - Reviewed the **Figma design file** to align spacing, colors, icons, and layout styles with the UI specifications.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Component Design**
+   - Created modular React components:
+     - `Timeline.js` – main wrapper rendering the time axis and participant rows.
+     - `TimeAxis.js` – displays time markers across the timeline for reference.
+     - `ParticipantRow.js` – renders each participant’s events as icons positioned according to event time.
+
+3. **UI Implementation**
+   - First, built the UI with **hardcoded data** to match the Figma design.
+   - Used **Tailwind CSS** for styling, spacing, and typography consistent with the Figma file.
+   - Imported icons from GitHub Icons library for camera, mic, join, leave, etc events.
+
+4. **Data Mapping**
+   - Created a `data` folder, and under that, a `meetingData.js` file to store the provided JSON data.
+   - Mapped each event onto the timeline based on its timestamp relative to the meeting start and end times.
+
+5. **Testing and Refinement**
+   - Verified alignment and event accuracy using the provided JSON dataset.
+   - Matched UI spacing, icon sizes, and overall visual fidelity against the **Figma file**.
+
+---
+
+
+## Folder Structire
+src/
+├── app/
+│   ├── layout.js  
+│   └── page.js    
+├── components/
+│   ├── Timeline.js
+│   ├── ParticipantRow.js
+│   └── TimeAxis.js
+├── data/
+│   └── meetingData.js
+
