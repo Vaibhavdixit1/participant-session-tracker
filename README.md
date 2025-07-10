@@ -19,7 +19,22 @@ These features provide a detailed and intuitive view of participant activity thr
 
 ---
 
-## 📁 Usage
+## 📁 Folder Structure
+
+```
+src/
+├── app/
+│   ├── layout.js  
+│   └── page.js    
+├── components/
+│   ├── Timeline.js
+│   ├── ParticipantRow.js
+│   └── TimeAxis.js
+├── data/
+│   └── meetingData.js
+```
+
+##  📄 File 
 
 - `page.js` imports and renders the `Timeline` component.
 - `Timeline.js` internally uses:
@@ -55,15 +70,4 @@ These features provide a detailed and intuitive view of participant activity thr
 ---
 
 
-## Folder Structire
-src/
-├── app/
-│   ├── layout.js  
-│   └── page.js    
-├── components/
-│   ├── Timeline.js
-│   ├── ParticipantRow.js
-│   └── TimeAxis.js
-├── data/
-│   └── meetingData.js
 
