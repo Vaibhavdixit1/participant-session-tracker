@@ -11,7 +11,7 @@ These features provide a detailed and intuitive view of participant activity thr
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Next.js**
 - **Tailwind CSS**
@@ -19,7 +19,7 @@ These features provide a detailed and intuitive view of participant activity thr
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```
 src/
@@ -34,7 +34,7 @@ src/
 │   └── meetingData.js
 ```
 
-##  📄 File 
+##  File 
 
 - `page.js` imports and renders the `Timeline` component.
 - `Timeline.js` internally uses:
@@ -42,7 +42,7 @@ src/
   - `ParticipantRow.js` to render each participant’s event sequence.
 
 
-## 📝 Approach Used to Create the Timeline
+## Approach Used to Create the Timeline
 
 1. **Understanding Requirements**
    - Analyzed the provided **JSON data structure** to understand participant events, timestamps, and event types (join, leave, mute, unmute, errors, disconnects).
@@ -68,6 +68,3 @@ src/
    - Matched UI spacing, icon sizes, and overall visual fidelity against the **Figma file**.
 
 ---
-
-
-
